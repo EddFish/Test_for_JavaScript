@@ -1,14 +1,24 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import javax.script.*;
 
-
 public class ScriptRunner {
 	private ScriptEngineManager manager = new ScriptEngineManager();
 	private ScriptEngine engine = manager.getEngineByName("javascript");
+	private FileReader fr;
 
-	public Object execute(String fileName, String functionName, Object arg) throws Exception {
-		FileReader fr = new FileReader(fileName);
+	public ScriptRunner(String fileName) {
+		super();
+		try {
+			this.fr = new FileReader(fileName);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public Object execute(String functionName, Object... arg) throws Exception {
 		engine.eval(fr);
 		if (engine instanceof Invocable) {
 			Invocable invEngine = (Invocable) engine;

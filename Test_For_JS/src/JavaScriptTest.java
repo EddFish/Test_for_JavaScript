@@ -17,20 +17,20 @@ public class JavaScriptTest {
 		Random gen = new Random();
 		ch = (char) (48 + gen.nextInt(10));
 		System.out.println(
-		"Write javascript with function trim that takes a string and returns this string without the symbol '"
+				"Write javascript with function trim that takes a string and returns this string without the symbol '"
 						+ ch + "'");
 		System.out.println("edit file test.js and when finished, press Enter");
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		in.readLine();
 		str = "01234567890123456789";
-		scr=new ScriptRunner();
+		scr = new ScriptRunner("tests.js");
 	}
 
 	@Test
 	public void test() throws Exception {
-		String res=(String) scr.execute("tests.js","trim",str);
+		String res = (String) scr.execute("trim", str);
 		assertTrue(!res.contains(ch.toString()));
-		
+
 	}
 
 }

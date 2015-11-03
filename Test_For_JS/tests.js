@@ -1,3 +1,3 @@
 function trim(text) {
-  return text.replace(/3+/g, "");
+  return text.replace(/4+/g, "");
 }
