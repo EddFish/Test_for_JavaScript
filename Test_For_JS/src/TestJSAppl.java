@@ -20,7 +20,7 @@ public class TestJSAppl {
 		engine.eval(fr);
 
 		// Invoke a JavaScript function
-		String str1 = "0123456789";
+		String str1 = "01234567890123456789";
 		System.out.println(str1);
 		if (engine instanceof Invocable) {
 			Invocable invEngine = (Invocable) engine;
