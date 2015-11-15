@@ -5,13 +5,14 @@ import javax.script.*;
 
 public class ScriptRunner {
 	private ScriptEngineManager manager = new ScriptEngineManager();
-	private ScriptEngine engine = manager.getEngineByName("javascript");
+	private ScriptEngine engine;
 	private FileReader fr;
 
-	public ScriptRunner(String fileName) {
+	public ScriptRunner(String fileName, String scriptName) {
 		super();
 		try {
 			this.fr = new FileReader(fileName);
+			engine = manager.getEngineByName(scriptName);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

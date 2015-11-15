@@ -23,14 +23,14 @@ public class JavaScriptTest {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		in.readLine();
 		str = "01234567890123456789";
-		scr = new ScriptRunner("tests.js");
+		scr = new ScriptRunner("tests.js","javascript");
 	}
 
 	@Test
 	public void test() throws Exception {
 		String res = (String) scr.execute("trim", str);
-		assertTrue(!res.contains(ch.toString()));
-
+		str=str.replaceAll(ch.toString(),"");
+		assertEquals(str, res);
 	}
 
 }
