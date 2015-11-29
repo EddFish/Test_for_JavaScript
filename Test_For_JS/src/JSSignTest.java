@@ -24,9 +24,9 @@ public class JSSignTest {
 		Integer[] etalon = { 1, -1, 0 };
 		Integer[] res = new Integer[3];
 		ScriptRunner scr = new ScriptRunner("sign.js", "javascript");
-		res[0] = (Integer) scr.execute("sign", gen.nextInt(100));
+		res[0] = (Integer) scr.execute("sign", gen.nextInt(100)+1);
 		scr = new ScriptRunner("sign.js", "javascript");
-		res[1] = (Integer) scr.execute("sign", -gen.nextInt(100));
+		res[1] = (Integer) scr.execute("sign", -gen.nextInt(100)-1);
 		scr = new ScriptRunner("sign.js", "javascript");
 		res[2] = (Integer) scr.execute("sign", 0);
 		assertTrue(Arrays.equals(etalon, res));
